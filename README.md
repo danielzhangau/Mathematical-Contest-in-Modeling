@@ -8,8 +8,8 @@
 
 ## 主要包含算法
 
-|                   算法名                    |                   问题链接                   |
-| :--------------------------------------: | :--------------------------------------: |
+|                   算法名                    |                   问题链接                   |                  学习资源                   |
+| :--------------------------------------: | :--------------------------------------: | :--------------------------------------: |
 |                 **蚁群算法**                 | **[TSP问题](https://github.com/zzbb1199/Mathematical-Modeling/blob/master/%E7%BA%A2%E7%9A%AE%E4%B9%A6%E5%AD%A6%E4%B9%A0/ant_colony_algorithm/asa_tsp.m) \|[公交车路线问题](https://github.com/zzbb1199/Mathematical-Modeling/blob/master/%E7%BA%A2%E7%9A%AE%E4%B9%A6%E5%AD%A6%E4%B9%A0/ant_colony_algorithm/asa_bus_problem.m)** |
 | [**遗传算法**](https://github.com/zzbb1199/Mathematical-Modeling/blob/master/%E7%BA%A2%E7%9A%AE%E4%B9%A6%E5%AD%A6%E4%B9%A0/genetic/readme.txt) | [**多元函数最小值（遗传算法理论）**](https://github.com/zzbb1199/Mathematical-Modeling/blob/master/%E7%BA%A2%E7%9A%AE%E4%B9%A6%E5%AD%A6%E4%B9%A0/genetic/ga_algorithm_theory/GA501.m)**\|[beatxbx工具箱使用](https://github.com/zzbb1199/Mathematical-Modeling/blob/master/%E7%BA%A2%E7%9A%AE%E4%B9%A6%E5%AD%A6%E4%B9%A0/genetic/beatxbx_tools/beatbx_use.m)\|[MATLAB自带工具箱使用](https://github.com/zzbb1199/Mathematical-Modeling/blob/master/%E7%BA%A2%E7%9A%AE%E4%B9%A6%E5%AD%A6%E4%B9%A0/genetic/gatools/ga_use.m)** |
 | [**模拟退火**](https://github.com/zzbb1199/Mathematical-Modeling/blob/master/%E7%BA%A2%E7%9A%AE%E4%B9%A6%E5%AD%A6%E4%B9%A0/simulated_annealing/readme.txt) | **[TSP问题](https://github.com/zzbb1199/Mathematical-Modeling/blob/master/%E7%BA%A2%E7%9A%AE%E4%B9%A6%E5%AD%A6%E4%B9%A0/simulated_annealing/sa_tsp.m)\|[0-1背包问题](https://github.com/zzbb1199/Mathematical-Modeling/blob/master/%E7%BA%A2%E7%9A%AE%E4%B9%A6%E5%AD%A6%E4%B9%A0/simulated_annealing/sa_01knapsack.m)\|[公交车路线问题](https://github.com/zzbb1199/Mathematical-Modeling/blob/master/%E7%BA%A2%E7%9A%AE%E4%B9%A6%E5%AD%A6%E4%B9%A0/simulated_annealing/sa_bus_problem.m)** |
