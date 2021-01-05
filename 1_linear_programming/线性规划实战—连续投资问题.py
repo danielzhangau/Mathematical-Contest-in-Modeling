@@ -1,7 +1,14 @@
-# 线性规划实战—投资的收益和风险
+'''
+线性规划实战—连续投资问题
+考虑下列投资项目：
+项目A：在第1~4年每年年初可以投资，并于次年年末收回本利115%；
+项目B：第3年年初可以投资，一直到第5年年末能收回本利125%，且规定最大投资额不超过4万元；
+项目C：第2年年初可以投资，一直到第5年年末能收回本利140%，且规定最大投资额不超过3万元；
+项目D：5年内每一年年初均可以购买公债，并于当年年末归还本金，并加获得利息6%。
+如果你有10万元本金，求确定一个有效的投资方案，使得第5年年末你拥有的资金的本利总额最大？
+'''
 import numpy as np
 from copy import deepcopy
-import matplotlib.pyplot as plt
 np.set_printoptions(precision=4, suppress=True, threshold=np.inf)
 # 线性规划转化为松弛形式
 def get_loose_matrix(matrix):
@@ -75,6 +82,7 @@ def simplex(matrix, base_ids):
         # 在约束集合里，选取对替入变量约束最紧的约束行，那一行的基本变量作为替出变量
         k = np.array([matrix[i][0] / matrix[i][j] if matrix[i][j] > 0 else 0x7fff for i in
                       range(1, matrix.shape[0])]).argmin() + 1
+        # print('替出变量为：{}，替入变量为：{}， 值为：{}'.format(k, j, matrix[k][j]))
         # 说明原问题无界
         if matrix[k][j] <= 0:
             print('原问题无界')
@@ -86,7 +94,8 @@ def simplex(matrix, base_ids):
 def solve(a, b, c, equal=None):
     loose_matrix = get_loose_matrix(a)  # 转化得到松弛矩阵
     if equal is not None:
-        loose_matrix = np.insert(loose_matrix, 0, equal, axis=0)
+        for i, e in enumerate(equal):
+            loose_matrix = np.insert(loose_matrix, i, e, axis=0)
     matrix = join_matrix(loose_matrix, b, c)  # 得到ABC的组合矩阵
     base_ids = list(range(len(c), len(b) + len(c)))  # 初始化基本变量的索引数组
     # 约束系数矩阵有负数约束，证明没有可行解，需要辅助线性函数
@@ -105,37 +114,34 @@ def solve(a, b, c, equal=None):
     else:
         print('原线性规划问题无界')
         return None, None, None
-# 画图显示结果
-def draw_result(x, y):
-    plt.plot(x, y, color='r', linestyle=':', marker='*', label='Profit / Risk')
-    plt.legend()
-    plt.xlabel('Risk')
-    plt.ylabel('Profit')
-    plt.plot([x[6], x[6]], [y[0], y[6]], color='g', linestyle='--')
-    plt.scatter([x[6], ], [y[6], ], 50, color='red')
-    plt.annotate('Risk={0}\nProfit={1}'.format(round(x[6], 4), round(y[6], 4)), xy=(x[6], y[6]), xytext=(-20, 20),
-                 textcoords='offset points', fontsize=12)
-    plt.plot([x[25], x[25]], [y[0], y[25]], color='g', linestyle='--')
-    plt.scatter([x[25], ], [y[25], ], 50, color='red')
-    plt.annotate('Risk={0}\nProfit={1}'.format(round(x[25], 4), round(y[25], 4)), xy=(x[25], y[25]), xytext=(-20, -40),
-                 textcoords='offset points', fontsize=12)
-    plt.show()
 if __name__ == '__main__':
-    a = np.array([[0, 0.025, 0, 0, 0], [0, 0, 0.015, 0, 0],
-                  [0, 0, 0, 0.055, 0], [0, 0, 0, 0, 0.026]])  # 不等式约束系数
-    equal = [1, 1.01, 1.02, 1.045, 1.065] + [0] * a.shape[0]  # 等式约束系数
-    c = [-0.05, -0.27, -0.19, -0.185, -0.185]  # 目标函数系数
-    M = 1  # 总投资
-    risk = 0.0 / M  # 风险率
-    x_point, y_point = [], []  # 不同风险对应的收益点
-    while risk < 0.05:
-        b = [M] + [risk] * a.shape[0]  # M为等式约束，其余为不等式约束
-        matrix, ret_matrix, X = solve(np.copy(a), deepcopy(b), deepcopy(c), deepcopy(equal))  # 单纯形算法求解目标函数
-        if ret_matrix is not None:
-            print('等式约束检查', np.dot(equal, X[0:-1]))
-            print('当风险率为{}时，本次迭代的最优解为：{}'.format(np.round(risk, 4), np.round(X[0: len(c)], 4).tolist()))
-            print('该线性规划的最优值是：{}'.format(np.round(ret_matrix[0][0], 4)))
-            x_point.append(risk)
-            y_point.append(ret_matrix[0][0])
-        risk += 0.001
-    draw_result(x_point, y_point)
+    x = [0 for _ in range(20)]  # 定义决策变量
+    e1, e2, e3, e4, e5 = deepcopy(x), deepcopy(x), deepcopy(x), deepcopy(x), deepcopy(x)  # 等式约束
+    e1[0], e1[15] = 1, 1
+    e2[1], e2[11], e2[16], e2[15] = 1, 1, 1, -1.06
+    e3[2], e3[7], e3[17], e3[0], e3[16] = 1, 1, 1, -1.15, -1.06
+    e4[3], e4[18], e4[1], e4[17] = 1, 1, -1.15, -1.06
+    e5[19], e5[2], e5[18] = 1, -1.15, -1.06
+    a1, a2 = deepcopy(x), deepcopy(x)  # 不等式约束
+    a1[7] = 1
+    a2[11] = 1
+    a = np.array([a1, a2])
+    b = [10, 0, 0, 0, 0] + [4, 3]
+    equal = []
+    equal.append(e1 + [0] * a.shape[0])
+    equal.append(e2 + [0] * a.shape[0])
+    equal.append(e3 + [0] * a.shape[0])
+    equal.append(e4 + [0] * a.shape[0])
+    equal.append(e5 + [0] * a.shape[0])
+    c = deepcopy(x)  # 目标函数
+    c[3], c[7], c[11], c[19] = -1.15, -1.25, -1.4, -1.06
+    # 单纯形法求解数学模型
+    matrix, ret_matrix, X = solve(a, b, c, equal=equal)
+    Y = np.round(np.array(X[0: len(c)]).reshape(4, -1).T, 4)  # 得到最优投资方案
+    print(Y)
+    for i, y in enumerate(Y):
+        print('第{}年年初投资组合：项目A：{}万元，项目B：{}万元，项目C：{}万元，项目D：{}万元，该年总投入：{}万元'.format(
+            i + 1, y[-4], y[-3], y[-2], y[-1], np.sum(y)))
+    total_money = np.abs(np.round(-ret_matrix[0][0], 4))  # 总收入本息
+    profit = np.round((total_money - b[0]) / b[0] * 100, 4)  # 总赢利
+    print('第5年年末总收入本金+利息为：{}万元，总赢利：{}%'.format(total_money, profit))
