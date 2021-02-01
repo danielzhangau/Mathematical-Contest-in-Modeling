@@ -3,6 +3,7 @@
 
 ## 主要参考资料
 
+- [数据预处理](https://www.bilibili.com/video/BV1Ez411i74C?p=2)
 - [MATLAB在数学建模中的应用(红皮书)](https://baike.baidu.com/item/MATLAB%E5%9C%A8%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/10469801?fr=aladdin)
 - [大学生数学建模竞赛指南(蓝皮书)](https://baike.baidu.com/item/%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B%E6%8C%87%E5%8D%97/17660813)
 
