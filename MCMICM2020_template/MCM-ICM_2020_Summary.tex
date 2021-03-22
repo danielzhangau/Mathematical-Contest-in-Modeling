@@ -1,0 +1,77 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 2020 MCM/ICM 模版
+%% 本模版根据官方提供的代码优化：http://www.immchallenge.org/mcm/index.html
+%% 微信公众号：数学模型（MATHmodels）
+%% 联系方式：mathmodels@outlook.com
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{left=1in,right=0.75in,top=1in,bottom=1in}
+\usepackage{lastpage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Replace ABCDEF in the next line with your chosen problem
+% and replace 1111111 with your Team Control Number
+\newcommand{\Problem}{B}    % 换成你的题号
+\newcommand{\Team}{2001234} % 换成你的队号
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage{newtxtext}
+\usepackage{amsmath,amssymb,amsthm}
+%\usepackage{newtxmath} % must come after amsXXX
+
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{pgfplots}
+\lhead{Team \Team}
+\rhead{}
+\cfoot{}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}
+\graphicspath{{figures/}}  % Place your graphic files in the same directory as your main document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\vspace*{-16ex}
+\centerline{\begin{tabular}{*3{c}}
+	\parbox[t]{0.3\linewidth}{\begin{center}\textbf{Problem Chosen}\\ \Large \textcolor{red}{\Problem}\end{center}}
+	& \parbox[t]{0.3\linewidth}{\begin{center}\textbf{2020\\ MCM/ICM\\ Summary Sheet}\end{center}}
+	& \parbox[t]{0.3\linewidth}{\begin{center}\textbf{Team Control Number}\\ \Large \textcolor{red}{\Team}\end{center}}	\\
+	\hline
+\end{tabular}}
+%%%%%%%%%%% Begin Summary %%%%%%%%%%%
+
+\vspace{2em}
+\begin{center}
+\Large\bf Title of you paper   % 论文标题
+\end{center}
+
+From here, begin your summary  % 摘要
+
+%%%%%%%%%%% End Summary %%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\pagestyle{fancy}
+% Uncomment the next line to generate a Table of Contents
+%\tableofcontents 
+\newpage
+\setcounter{page}{1}
+\rhead{Page \thepage\ of \pageref{LastPage}}
+
+\tableofcontents\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+
+
+From here, begin the main body of your paper % 正文
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

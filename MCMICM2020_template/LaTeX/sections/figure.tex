@@ -1,0 +1,45 @@
+\section{Figure example}\label{sec:figure}
+
+A simple figure example is shown as figure \ref{fig:mathmodels}.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.6\textwidth]{MATHmodels.pdf}
+\caption{Figure example}\label{fig:mathmodels}
+\end{figure}
+
+For two independent side-by-side figures, you can use two minipages inside a figure enviroment. Here's an example, shown as figure \ref{fig:h_example_19} and \ref{fig:h_example_82}.
+\begin{figure}[!htb]
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[width=0.8\textwidth]{h_example_19.pdf}
+\caption{Figure example}\label{fig:h_example_19}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[width=0.8\textwidth]{h_example_82.pdf}
+\caption{Figure example}\label{fig:h_example_82}
+\end{minipage}
+\end{figure}
+
+
+TikZ and PGF are TeX packages for creating graphics programmatically. TikZ is build on top of PGF and allows you to create sophisticated graphics in a rather intuitive and easy manner. More about tikz, see 
+\begin{itemize}
+\item TikZ and PGF:  \url{http://www.texample.net/tikz}
+\item PGFPlots on Sourceforge:  \url{http://pgfplots.sourceforge.net}
+\item PGFPlots examples:  \url{http://pgfplots.net/tikz/examples/}
+\end{itemize}
+Here are a tikzpicture example (figure \ref{fig:tikz}) and a pgfplots example (figure \ref{fig:pgfplots}).
+\begin{figure}[!htb]
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\input{figures/graph-tikz.tikz}
+\caption{tikzpicture example. }\label{fig:tikz}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\centering
+\input{figures/plot-pgf.tikz}
+\caption{pgfplots example}\label{fig:pgfplots}
+\end{minipage}
+\end{figure}
