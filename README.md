@@ -29,4 +29,11 @@
 
 Ok,that's all,hope you have a good day!
 
-写了一份[建模心得](https://www.ravenxrz.ink/archives/a-experience-of-failure-in-mathematical-modeling.html)，希望能够帮助到后来的建模学弟学妹吧。
+What I get from involving this competition:
+- develop problem solving skills
+- work in a team environment
+- apply knowledge outside the classroom
+- learn how to use mathematics as a tool to solve interesting problems
+- learn more about a topic or issue facing our world today
+- communicate results to technical and nontechnical audiences
+- ability to effectively use data
